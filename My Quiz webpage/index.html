@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Website</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+      }
+      .question {
+        margin-bottom: 20px;
+      }
+      .question h3 {
+        margin-bottom: 10px;
+      }
+      .question input {
+        margin-right: 10px;
+      }
+      .submit-btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .submit-btn:hover {
+        background-color: #218838;
+      }
+      .result {
+        margin-top: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Simple Quiz</h1>
+      <form id="quizForm">
+        <div class="question">
+          <h3>1. What is the capital of France?</h3>
+          <label><input type="radio" name="q1" value="correct" /> Paris</label
+          ><br />
+          <label
+            ><input type="radio" name="q1" value="incorrect" /> London</label
+          ><br />
+          <label><input type="radio" name="q1" value="incorrect" /> Rome</label
+          ><br />
+          <label
+            ><input type="radio" name="q1" value="incorrect" /> Berlin</label
+          >
+        </div>
+
+        <div class="question">
+          <h3>2. Which is the largest planet in our solar system?</h3>
+          <label><input type="radio" name="q2" value="incorrect" /> Earth</label
+          ><br />
+          <label><input type="radio" name="q2" value="incorrect" /> Mars</label
+          ><br />
+          <label><input type="radio" name="q2" value="correct" /> Jupiter</label
+          ><br />
+          <label
+            ><input type="radio" name="q2" value="incorrect" /> Saturn</label
+          >
+        </div>
+
+        <div class="question">
+          <h3>3. Who wrote 'Hamlet'?</h3>
+          <label
+            ><input type="radio" name="q3" value="incorrect" /> Charles
+            Dickens</label
+          ><br />
+          <label
+            ><input type="radio" name="q3" value="correct" /> William
+            Shakespeare</label
+          ><br />
+          <label
+            ><input type="radio" name="q3" value="incorrect" /> J.K.
+            Rowling</label
+          ><br />
+          <label
+            ><input type="radio" name="q3" value="incorrect" /> Mark
+            Twain</label
+          >
+        </div>
+
+        <button type="button" class="submit-btn" onclick="checkQuiz()">
+          Submit
+        </button>
+      </form>
+
+      <div class="result" id="result"></div>
+    </div>
+
+    <script>
+      function checkQuiz() {
+        var correctAnswers = 0;
+        var totalQuestions = 3;
+        var form = document.getElementById("quizForm");
+        var result = document.getElementById("result");
+
+        // Check the first question
+        if (form.q1.value === "correct") {
+          correctAnswers++;
+        }
+
+        // Check the second question
+        if (form.q2.value === "correct") {
+          correctAnswers++;
+        }
+
+        // Check the third question
+        if (form.q3.value === "correct") {
+          correctAnswers++;
+        }
+
+        // Display result
+        result.innerHTML =
+          "You got " +
+          correctAnswers +
+          " out of " +
+          totalQuestions +
+          " correct!";
+      }
+    </script>
+  </body>
+</html>
